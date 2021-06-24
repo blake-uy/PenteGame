@@ -1,0 +1,434 @@
+html, body { margin: 0; padding: 0; height: 100%; }
+
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* This is the container for all views.  It is designed to fill the viewport. */
+#main-container {
+    height: 100%;
+    border: solid silver 2px;
+    overflow: hidden;
+}
+
+.login-box{
+    width: 320px;
+    height: 420px;
+    background: white;
+    color: #f0f0f0;
+    top:50%;
+    left: 50%;
+}
+
+.login-box h1{
+    padding: 0px;
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    border-bottom: 4px solid;
+    margin-bottom: 20px;
+}
+
+.textbox {
+    margin: 8px 0;
+    padding: 8px 0;
+    font-size: 15px;
+    color: black;
+}
+
+.textbox input {
+    width: 100%;
+}
+
+#username-error {
+    margin: 4px 0;
+    padding: 4px 0;
+    font-size: 20px;
+    color: red;
+}
+
+#password-error {
+    margin: 4px 0;
+    padding: 4px 0;
+    font-size: 20px;
+    color: red;
+}
+
+#login-submit-btn{
+    display: table-row;
+    border: 2px solid;
+    align-items: center;
+    width: 25%;
+}
+
+#new-user-btn {
+    color: blue;
+    border:0px;
+    background-color: white;
+}
+
+
+#login-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+#new-user-error {
+    margin: 4px 0;
+    padding: 4px 0;
+    font-size: 20px;
+    color: red;
+}
+
+#new-password-error {
+    margin: 4px 0;
+    padding: 4px 0;
+    font-size: 20px;
+    color: red;
+}
+
+#default-view-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+#settings-btn {
+    border: 2px solid;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+#main-buttons{
+    display: table-row;
+    border: 1px;
+    align-items: center;
+}
+
+#main-container .main-cancel-btn {
+    border: 2px solid;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+#game-view-container {
+    display: flex;
+}
+#login-view-container {
+    display: flex;
+}
+
+.new-user-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:560px;
+    width: 100%;
+}
+
+.new-user-box h1{
+    padding: 0px;
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    border-bottom: 4px solid;
+    margin-bottom: 20px;
+}
+
+.new-user-box h2 {
+    font-size: 24px;
+}
+
+.newtextbox {
+    margin: 8px 0;
+    padding: 8px 0;
+    font-size: 15px;
+    color: black;
+}
+
+.newtextbox input {
+    width: 100%;
+}
+
+#new-user-submit-btn{
+    display: table-row;
+    margin: 12px 0;
+    border: 2px solid;
+    align-items: center;
+    width: 100%;
+}
+
+#board-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board-footer {
+	display: flex;
+    justify-content: right;
+    margin-top: 10px;
+}
+
+#player-info-container {
+    border: solid black 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.top-card {
+	border: solid black 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.bottom-card {
+	border: solid black 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#game-canvas {
+    position: relative;
+    border: solid black 2px;
+    border-radius: 3px;
+    background-color: rgb(250, 191, 83);
+    z-index: 0;
+}
+
+/* Styles for a popup dialog */
+#dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 11;
+    top: 33%;
+    left: 25%;
+    min-width: 50%;
+    min-height: 200px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+}
+
+#dialog .close-btn {
+    align-self: flex-end;
+    color: red;
+}
+
+#dialog .dialog-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Create new game */
+#new-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 11;
+    top: 25%;
+    left: 25%;
+    min-width: 50%;
+    min-height: 300px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+}
+
+#new-game .close-btn {
+    align-self: flex-end;
+    color: red;
+}
+
+#new-game .dialog-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+/* Styles for a popup dialog */
+#join-game {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 11;
+    top: 33%;
+    left: 25%;
+    min-width: 50%;
+    min-height: 200px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+}
+
+#join-game .close-btn {
+    align-self: flex-end;
+    color: red;
+}
+
+#join-game .dialog-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#join-game-table-area{
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#join-game-table-area table{
+    width: 100%;
+}
+
+#join-game-table-area th{
+    background-color: black;
+    color: white;
+}
+
+
+
+#join-game-table-area tr:nth-child(even) {background-color: grey;}
+
+#join-game-table tr.selected{
+    background-color: lightblue;
+    border: 1px blue;
+}
+
+
+#view-games {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 11;
+    top: 33%;
+    left: 25%;
+    min-width: 50%;
+    min-height: 200px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+}
+
+#view-games .close-btn {
+    align-self: flex-end;
+    color: red;
+}
+
+#view-games .dialog-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#view-games-table-area{
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#view-games-table-area table{
+    width: 100%;
+}
+
+#view-games-table-area th{
+    background-color: black;
+    color: white;
+}
+
+
+
+#view-games-table-area tr:nth-child(even) {background-color: grey;}
+
+#view-games-table tr.selected{
+    background-color: lightblue;
+    border: 1px blue;
+}
+
+/* settings */
+#settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 11;
+    top: 33%;
+    left: 25%;
+    min-width: 50%;
+    min-height: 200px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+}
+
+#settings .close-btn {
+    align-self: flex-end;
+    color: red;
+}
+
+#settings .dialog-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#no-current-games{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.no-game-box{
+    padding: 300px;
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+    color: black;
+}
+
+
+
+/* This is used to shade the background when the dialog is active */
+#shade {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: silver;
+    opacity: 0.5;
+}
