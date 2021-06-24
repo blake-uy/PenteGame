@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="EN">
+    <head>
+        <meta charset="utf-8">
+        <title>Game Client</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="main-container">
+            <!-- login menu -->
+            <div id = "login-menu">
+                <div class = "login-box">
+                    <h1>Login</h1>
+                    <div id="user-info-container">
+                        <div class="textbox">
+                            <h3 id="enter-name">Enter Username:</h3>
+                            <input type ="text" id = "name" name = "name">
+                        </div>
+                        <div id="username-error"> </div>
+                        <div class="textbox">
+                            <h3>Enter Password:</h3>
+                            <input type ="password" id = "password" name = "password">
+                        </div>
+                        <div id="password-error"> </div>
+                    </div>
+                    <button id="login-submit-btn">Sign In</button>
+                    <button id="new-user-btn">New User?</button>
+
+                </div>
+            </div> <!-- login menu -->
+            <!-- Main view -->
+            <div id="default-view-container">
+
+                <h1>Pente</h1>
+                <h2 id ="current-game"></h2>
+                <div id = "main-buttons">
+                <button id="show-game-btn">Show Game View</button>
+                <button id="show-join-games-btn">Join Game</button>
+                    <button id="show-view-games-btn">View Active Games</button>
+                    <button id="show-new-game-btn">New Game</button>
+
+                </div>
+                <button id="settings-btn"></button>
+            </div>
+
+            <!-- Game view -->
+            <div id="game-view-container">
+                <div id="player-info-container">
+                    <div id="user-info" class="top-card">
+                        <h2 id="user-name">[Your name]</h2>
+                        <h4 id="user-color">White</h4>
+                        <p id="user-captures">Captures: 0</p>
+                        <h1 id="user-prev-move" style="padding-top: 15%;">Previous Move:</h1>
+                        <h1 id="is-user-turn" style="padding-bottom: 15%;"></h1>
+                        <button id="resign-btn">Resign</button>
+                    </div>
+                    <div id="opponent-info" class="bottom-card">
+                        <h2 id="opp-name">[Opponent name]</h2>
+                        <h4 id="opp-color">White</h4>
+                        <p id="opp-captures">Captures: 0</p>
+                        <h1 id="opp-prev-move" style="padding-top: 15%;">Previous Move:</h1>
+                        <h1 id="is-opp-turn" style="padding-bottom: 15%;"></h1>
+                    </div>
+                </div>
+
+                <div id="board-container">
+                    <div id="board-header">
+                        <h1 id="game-title">Game Title</h1>
+                    </div>
+                    <div id="canvas-container">
+                        <canvas id="game-canvas" width="500" height="500"></canvas>
+                    </div>
+                    <div id="board-footer">
+                    	<button id="back-main-btn">Menu</button>
+                    </div>
+                </div>
+            </div><!-- game-view-container -->
+
+            <!-- Login page -->
+            <div id = "login-view-container">
+                <button class="cancel-btn">Back</button>
+                <div class = "new-user-box">
+                    <div id = "create-account">
+                        <h1>New User?</h1>
+                        <div class="newtextbox">
+                            <h2>Enter Username:</h2>
+                            <input type ="text" id = "newusername" name = "newusername">
+                        </div>
+                        <div id="new-user-error"></div>
+                        <div class="newtextbox">
+                            <h2>Enter Password:</h2>
+                            <input type ="text" id = "newpassword" name = "newpassword">
+                        </div>
+                        <div id="new-password-error"></div>
+                            <button id="new-user-submit-btn">Sign Up</button>
+                    </div>
+                </div>
+            </div> <!-- login-view-container -->
+
+            <!-- No Current games -->
+            <div id="no-current-games">
+                <button id="back-menu-btn">Menu</button>
+                <div class = "no-game-box">
+                    <h1>No Current Game</h1>
+                </div>
+            </div> <!-- no current games -->
+        </div> <!-- main-container -->
+
+
+
+        <!-- New Game Dialogue box -->
+        <div id="new-game" style="display:none">
+            <button class="close-btn" href="#">X</button>
+            <h1>New Game</h1>
+            <div>
+                <p>Enter Game Name:</p>
+                <input type ="text" id = "gamename" name = "gamename">
+                <button class="create-btn" id = "create-btnID">Create</button>
+            </div>
+        </div>
+
+
+        <!-- Join Games Dialogue box -->
+        <div id="join-game" style="display: none">
+            <button class="close-btn" href="#">X</button>
+            <h2>Join a Game</h2>
+            <div id="join-game-table-area">
+                <table id="join-game-table">
+
+                </table>
+            </div>
+            <div class="dialog-buttons">
+                <button class="ok-btn">Join</button><button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+
+
+        <!-- View Games Dialogue box -->
+        <div id="view-games" style="display: none">
+            <button class="close-btn" href="#">X</button>
+            <h2>Active Games</h2>
+            <div id="view-games-table-area">
+                <table id="view-games-table">
+
+                </table>
+            </div>
+            <div class="dialog-buttons">
+                <button class="ok-btn">Open</button><button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Settings box -->
+        <div id="settings" style="display:none">
+            <button class="close-btn" href="#">X</button>
+            <h1>Settings</h1>
+            <div>
+                <button class="help-btn">Help</button>
+                <button class="delete-user-btn">Delete User</button>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </div>
+        <!-- settings -->
+
+        <!-- This is used to shade the background when the dialog is active -->
+        <div id="shade" style="display: none"></div>
+
+        <!-- Load the StompJS library -->
+        <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@6.1.0/bundles/stomp.umd.js"></script>
+
+        <!-- Load our JS as a ES6 module -->
+        <script type="module" src="./js/main.js"></script>
+    </body>
+</html>
