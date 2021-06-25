@@ -3,6 +3,9 @@
 This is a starting template for the group project for CS 390, Spring 2021.
 It uses the Gradle tool for build and dependency management.
 
+![screen-small](https://user-images.githubusercontent.com/58790294/123349883-af2aac80-d50e-11eb-96e1-86e6cd1ff7a9.png)
+
+
 Functional Requirements
   - This implementation of Pente will use the basic rules (including captures)], but will not support the “Tournament Rule.”
   - Users have a username which is globally unique and is selected by the user.
