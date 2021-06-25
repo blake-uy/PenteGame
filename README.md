@@ -30,9 +30,8 @@ Non-Functional Requirements
   - If a player tries to make an illegal move, the system must deny that move. This must be enforced by both the client and the server (not just the client).
   - Since management has not yet decided on a persistance solution (database, text files, etc.), and that solution may change, the prototype will not have a persistence system.
   - Instead, all data will be stored in memory.
-
-![Screenshot (96)](https://user-images.githubusercontent.com/58790294/123349946-d41f1f80-d50e-11eb-98f5-d6e912ace477.png)
-
   - The management expects to create a Java client, an Android client, an iOS client, and a web based client, but not right away. Initially, we will create a single prototype client using a Java desktop GUI or Javascript-based single-page web application.
   - The system must support the addition of additional games with minimal impact to the system.
 The server must support a modest number (1000s) of simultaneous users.
+
+![Screenshot (96)](https://user-images.githubusercontent.com/58790294/123349946-d41f1f80-d50e-11eb-98f5-d6e912ace477.png)
