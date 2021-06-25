@@ -34,4 +34,11 @@ Non-Functional Requirements
   - The system must support the addition of additional games with minimal impact to the system.
 The server must support a modest number (1000s) of simultaneous users.
 
+
+Dynamic Interactions
 ![Screenshot (96)](https://user-images.githubusercontent.com/58790294/123349946-d41f1f80-d50e-11eb-98f5-d6e912ace477.png)
+
+
+Client Side UML
+![ClientAppUML](https://user-images.githubusercontent.com/58790294/123350003-f4e77500-d50e-11eb-816a-e5b6488c4ccd.png)
+
